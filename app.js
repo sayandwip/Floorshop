@@ -12,17 +12,17 @@ const products = [
     price: 289,
     originalPrice: null,
     season: "spring",
-    image: "https://images.unsplash.com/photo-1612363148951-15f16817648f?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Jasminum_sambak.jpg/500px-Jasminum_sambak.jpg",
     badge: null
   },
   {
     id: 2,
     name: "Pink Lotus Blooms",
-    desc: "Sacred pink lotus flowers, freshly picked",
+    desc: "Sacred pink lotus flowers, India's national flower",
     price: 239,
     originalPrice: null,
     season: "spring",
-    image: "https://images.unsplash.com/photo-1612968244325-e97e8e1a9cc2?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lotus_Nelumbo_nucifera_Flower_Large_3264px.jpg/960px-Lotus_Nelumbo_nucifera_Flower_Large_3264px.jpg",
     badge: null
   },
   {
@@ -32,7 +32,7 @@ const products = [
     price: 199,
     originalPrice: 269,
     season: "spring",
-    image: "https://images.unsplash.com/photo-1476994230281-1448088947db?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Crossandra_infundibuliformis_-_Mounts_Botanical_Garden_-_Palm_Beach_County%2C_Florida_-_DSC03821.jpg/960px-Crossandra_infundibuliformis_-_Mounts_Botanical_Garden_-_Palm_Beach_County%2C_Florida_-_DSC03821.jpg",
     badge: "sale"
   },
   {
@@ -42,7 +42,7 @@ const products = [
     price: 329,
     originalPrice: null,
     season: "summer",
-    image: "https://images.unsplash.com/photo-1551731409-43eb3e517a1a?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Helianthus_%28sunflower%29.jpg/960px-Helianthus_%28sunflower%29.jpg",
     badge: null
   },
   {
@@ -52,27 +52,27 @@ const products = [
     price: 189,
     originalPrice: null,
     season: "summer",
-    image: "https://images.unsplash.com/photo-1548460397-f4755fafe6c5?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Red_rose_flower_detailed_imge.jpg/960px-Red_rose_flower_detailed_imge.jpg",
     badge: null
   },
   {
     id: 6,
     name: "Pink Rose Garden Mix",
-    desc: "Soft pink & peach roses in a lush arrangement",
+    desc: "Soft pink rose in full bloom, garden fresh",
     price: 369,
     originalPrice: 449,
     season: "summer",
-    image: "https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Closeup_of_a_pink_rose_in_full_bloom..JPG/960px-Closeup_of_a_pink_rose_in_full_bloom..JPG",
     badge: "sale"
   },
   {
     id: 7,
     name: "Dahlia Collection",
-    desc: "Rich burgundy & orange dahlias in full bloom",
+    desc: "Rich red dahlias in full bloom",
     price: 299,
     originalPrice: null,
     season: "autumn",
-    image: "https://images.unsplash.com/photo-1536090265635-d1aab6524ee7?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Dahlia_coccinea%2C_the_Red_Dahlia_%289450014546%29.jpg/500px-Dahlia_coccinea%2C_the_Red_Dahlia_%289450014546%29.jpg",
     badge: null
   },
   {
@@ -82,17 +82,17 @@ const products = [
     price: 159,
     originalPrice: null,
     season: "autumn",
-    image: "https://images.unsplash.com/photo-1568347877321-f8930bfad8d0?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Indian_marigold.jpg/960px-Indian_marigold.jpg",
     badge: null
   },
   {
     id: 9,
     name: "Chrysanthemum Elegance",
-    desc: "Colourful sevanthi mums in autumn shades",
+    desc: "Colourful sevanthi mums in golden shades",
     price: 269,
     originalPrice: 329,
     season: "autumn",
-    image: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Chrysanthemum_flowers_yellow.jpg/960px-Chrysanthemum_flowers_yellow.jpg",
     badge: "sale"
   },
   {
@@ -102,17 +102,17 @@ const products = [
     price: 249,
     originalPrice: null,
     season: "winter",
-    image: "https://images.unsplash.com/photo-1592530392744-65e849dba555?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Hibiscus_rosa-sinensis_flower_2.JPG/960px-Hibiscus_rosa-sinensis_flower_2.JPG",
     badge: null
   },
   {
     id: 11,
     name: "White Lily Bouquet",
-    desc: "Elegant white lilies with a heavenly fragrance",
+    desc: "Elegant white lilies from Assam, heavenly fragrance",
     price: 319,
     originalPrice: null,
     season: "winter",
-    image: "https://images.unsplash.com/photo-1533616688419-b7a585564566?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/White_lily_flower%2C_Assam.jpg/960px-White_lily_flower%2C_Assam.jpg",
     badge: null
   },
   {
@@ -122,7 +122,7 @@ const products = [
     price: 219,
     originalPrice: 289,
     season: "winter",
-    image: "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?w=400&h=500&fit=crop&crop=entropy",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Starr_070906-9086_Polianthes_tuberosa.jpg/960px-Starr_070906-9086_Polianthes_tuberosa.jpg",
     badge: "sale"
   }
 ];
