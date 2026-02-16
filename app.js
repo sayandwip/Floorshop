@@ -12,7 +12,7 @@ const products = [
     price: 289,
     originalPrice: null,
     season: "spring",
-    image: "https://images.unsplash.com/photo-1612363148951-15f16817648f?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1612363148951-15f16817648f?w=400&h=500&fit=crop&crop=entropy",
     badge: null
   },
   {
@@ -22,7 +22,7 @@ const products = [
     price: 239,
     originalPrice: null,
     season: "spring",
-    image: "https://images.unsplash.com/photo-1524601500432-1e1a4c71d692?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1612968244325-e97e8e1a9cc2?w=400&h=500&fit=crop&crop=entropy",
     badge: null
   },
   {
@@ -32,7 +32,7 @@ const products = [
     price: 199,
     originalPrice: 269,
     season: "spring",
-    image: "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1476994230281-1448088947db?w=400&h=500&fit=crop&crop=entropy",
     badge: "sale"
   },
   {
@@ -42,7 +42,7 @@ const products = [
     price: 329,
     originalPrice: null,
     season: "summer",
-    image: "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1551731409-43eb3e517a1a?w=400&h=500&fit=crop&crop=entropy",
     badge: null
   },
   {
@@ -52,7 +52,7 @@ const products = [
     price: 189,
     originalPrice: null,
     season: "summer",
-    image: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1548460397-f4755fafe6c5?w=400&h=500&fit=crop&crop=entropy",
     badge: null
   },
   {
@@ -62,7 +62,7 @@ const products = [
     price: 369,
     originalPrice: 449,
     season: "summer",
-    image: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=400&h=500&fit=crop&crop=entropy",
     badge: "sale"
   },
   {
@@ -72,7 +72,7 @@ const products = [
     price: 299,
     originalPrice: null,
     season: "autumn",
-    image: "https://images.unsplash.com/photo-1536090265635-d1aab6524ee7?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1536090265635-d1aab6524ee7?w=400&h=500&fit=crop&crop=entropy",
     badge: null
   },
   {
@@ -82,7 +82,7 @@ const products = [
     price: 159,
     originalPrice: null,
     season: "autumn",
-    image: "https://images.unsplash.com/photo-1568347877321-f8930bfad8d0?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1568347877321-f8930bfad8d0?w=400&h=500&fit=crop&crop=entropy",
     badge: null
   },
   {
@@ -92,7 +92,7 @@ const products = [
     price: 269,
     originalPrice: 329,
     season: "autumn",
-    image: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=400&h=500&fit=crop&crop=entropy",
     badge: "sale"
   },
   {
@@ -102,7 +102,7 @@ const products = [
     price: 249,
     originalPrice: null,
     season: "winter",
-    image: "https://images.unsplash.com/photo-1592530392744-65e849dba555?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1592530392744-65e849dba555?w=400&h=500&fit=crop&crop=entropy",
     badge: null
   },
   {
@@ -112,7 +112,7 @@ const products = [
     price: 319,
     originalPrice: null,
     season: "winter",
-    image: "https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1533616688419-b7a585564566?w=400&h=500&fit=crop&crop=entropy",
     badge: null
   },
   {
@@ -122,7 +122,7 @@ const products = [
     price: 219,
     originalPrice: 289,
     season: "winter",
-    image: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?w=400&h=500&fit=crop&crop=entropy",
     badge: "sale"
   }
 ];
