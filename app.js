@@ -128,7 +128,15 @@ const products = [
 ];
 
 // ===== STATE =====
-let cart = JSON.parse(localStorage.getItem("bloom_cart")) || [];
+let cart = [];
+try {
+  const stored = JSON.parse(localStorage.getItem("bloom_cart"));
+  if (Array.isArray(stored)) {
+    cart = stored.filter(item => item && typeof item.id === "number" && typeof item.price === "number" && item.qty > 0);
+  }
+} catch (e) {
+  localStorage.removeItem("bloom_cart");
+}
 let currentFilter = "all";
 
 // ===== DOM ELEMENTS =====
@@ -359,9 +367,12 @@ function setupEventListeners() {
     e.target.reset();
   });
 
-  // Checkout button — open modal
-  $("#checkoutBtn").addEventListener("click", () => {
-    openCheckout();
+  // Checkout button — event delegation for reliability
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("#checkoutBtn")) {
+      e.preventDefault();
+      openCheckout();
+    }
   });
 
   // Checkout modal setup
@@ -404,17 +415,28 @@ function openCheckout() {
     showToast("Your cart is empty!");
     return;
   }
+
   closeCart();
-  currentStep = 1;
-  updateCheckoutSteps();
-  $("#checkoutOverlay").classList.add("open");
-  $("#checkoutModal").classList.add("open");
-  document.body.style.overflow = "hidden";
+
+  setTimeout(() => {
+    currentStep = 1;
+    updateCheckoutSteps();
+
+    const overlay = document.getElementById("checkoutOverlay");
+    const modal = document.getElementById("checkoutModal");
+
+    if (overlay) overlay.classList.add("open");
+    if (modal) modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }, 150);
 }
 
 function closeCheckout() {
-  $("#checkoutOverlay").classList.remove("open");
-  $("#checkoutModal").classList.remove("open");
+  const overlay = document.getElementById("checkoutOverlay");
+  const modal = document.getElementById("checkoutModal");
+
+  if (overlay) overlay.classList.remove("open");
+  if (modal) modal.classList.remove("open");
   document.body.style.overflow = "";
 }
 
@@ -609,35 +631,51 @@ function validateShipping() {
 
 // ===== CHECKOUT EVENT SETUP =====
 function setupCheckout() {
-  $("#checkoutOverlay").addEventListener("click", closeCheckout);
-  $("#checkoutClose").addEventListener("click", closeCheckout);
-  $("#checkoutCancelBtn").addEventListener("click", closeCheckout);
+  // Use event delegation for all checkout interactions for maximum reliability
+  document.addEventListener("click", (e) => {
+    const target = e.target;
 
-  // Step 1 → 2 (Shipping → Review)
-  $("#toReviewBtn").addEventListener("click", () => {
-    if (!validateShipping()) return;
-    currentStep = 2;
-    updateCheckoutSteps();
-    populateOrderSummary();
-    populateReview();
-  });
+    // Close checkout
+    if (target.closest("#checkoutClose") || target.closest("#checkoutCancelBtn")) {
+      e.preventDefault();
+      closeCheckout();
+    }
 
-  // Step 2 → 1 (Review → Shipping)
-  $("#backToShippingBtn").addEventListener("click", () => {
-    currentStep = 1;
-    updateCheckoutSteps();
-  });
+    // Overlay click to close
+    if (target.id === "checkoutOverlay") {
+      closeCheckout();
+    }
 
-  // Pay Now — open Razorpay
-  $("#payNowBtn").addEventListener("click", () => {
-    initiateRazorpayPayment();
-  });
+    // Step 1 → 2 (Shipping → Review)
+    if (target.closest("#toReviewBtn")) {
+      e.preventDefault();
+      if (!validateShipping()) return;
+      currentStep = 2;
+      updateCheckoutSteps();
+      populateOrderSummary();
+      populateReview();
+    }
 
-  // Continue shopping after success
-  $("#continueShopping").addEventListener("click", () => {
-    closeCheckout();
-    currentStep = 1;
-    updateCheckoutSteps();
+    // Step 2 → 1 (Review → Shipping)
+    if (target.closest("#backToShippingBtn")) {
+      e.preventDefault();
+      currentStep = 1;
+      updateCheckoutSteps();
+    }
+
+    // Pay Now — open Razorpay
+    if (target.closest("#payNowBtn")) {
+      e.preventDefault();
+      initiateRazorpayPayment();
+    }
+
+    // Continue shopping after success
+    if (target.closest("#continueShopping")) {
+      e.preventDefault();
+      closeCheckout();
+      currentStep = 1;
+      updateCheckoutSteps();
+    }
   });
 
   // Phone number — digits only
