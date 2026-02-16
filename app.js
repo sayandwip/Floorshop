@@ -392,6 +392,10 @@ function setupScrollAnimations() {
   revealElements.forEach(el => observer.observe(el));
 }
 
+// ===== RAZORPAY CONFIG =====
+// Using Razorpay TEST mode key — replace with your live key for production
+const RAZORPAY_KEY = "rzp_test_1DP5mmOlF5G5ag";
+
 // ===== CHECKOUT SYSTEM =====
 let currentStep = 1;
 
@@ -403,7 +407,6 @@ function openCheckout() {
   closeCart();
   currentStep = 1;
   updateCheckoutSteps();
-  populateOrderSummary();
   $("#checkoutOverlay").classList.add("open");
   $("#checkoutModal").classList.add("open");
   document.body.style.overflow = "hidden";
@@ -435,22 +438,26 @@ function updateCheckoutSteps() {
 
   panels.forEach(p => p.classList.remove("active"));
   if (currentStep === 1) $("#stepShipping").classList.add("active");
-  else if (currentStep === 2) $("#stepPayment").classList.add("active");
-  else if (currentStep === 3) $("#stepConfirm").classList.add("active");
-  else if (currentStep === 4) {
+  else if (currentStep === 2) $("#stepReview").classList.add("active");
+  else if (currentStep === 3) {
     $(".checkout-steps").style.display = "none";
     $("#stepSuccess").classList.add("active");
   }
 
-  if (currentStep < 4) {
+  if (currentStep < 3) {
     $(".checkout-steps").style.display = "flex";
   }
 }
 
-function populateOrderSummary() {
+function getOrderTotals() {
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   const delivery = subtotal >= 200 ? 0 : 49;
   const total = subtotal + delivery;
+  return { subtotal, delivery, total };
+}
+
+function populateOrderSummary() {
+  const { subtotal, delivery, total } = getOrderTotals();
 
   const itemsHtml = cart.map(item => `
     <div class="order-item-row">
@@ -470,12 +477,9 @@ function populateOrderSummary() {
 
   const totEl = $("#orderTotal");
   if (totEl) totEl.textContent = `₹${total.toLocaleString("en-IN")}`;
-
-  const confirmTotEl = $("#confirmTotal");
-  if (confirmTotEl) confirmTotEl.textContent = `₹${total.toLocaleString("en-IN")}`;
 }
 
-function populateConfirmation() {
+function populateReview() {
   const firstName = $("#coFirstName").value.trim();
   const lastName = $("#coLastName").value.trim();
   const email = $("#coEmail").value.trim();
@@ -494,26 +498,65 @@ function populateConfirmation() {
   `;
   if (notes) shippingHtml += `<br/><em>Note: ${notes}</em>`;
   $("#confirmShipping").innerHTML = shippingHtml;
+}
 
-  const method = document.querySelector('input[name="paymentMethod"]:checked').value;
-  const methodNames = {
-    cod: "Cash on Delivery",
-    upi: "UPI Payment",
-    card: "Credit / Debit Card",
-    netbanking: "Net Banking"
+// ===== RAZORPAY PAYMENT =====
+function initiateRazorpayPayment() {
+  const { total } = getOrderTotals();
+  const firstName = $("#coFirstName").value.trim();
+  const lastName = $("#coLastName").value.trim();
+  const email = $("#coEmail").value.trim();
+  const phone = $("#coPhone").value.trim();
+
+  const itemNames = cart.map(item => `${item.name} x${item.qty}`).join(", ");
+
+  const options = {
+    key: RAZORPAY_KEY,
+    amount: total * 100,
+    currency: "INR",
+    name: "Bloom & Petal",
+    description: itemNames.length > 200 ? itemNames.substring(0, 197) + "..." : itemNames,
+    image: "https://em-content.zobj.net/source/apple/391/cherry-blossom_1f338.png",
+    prefill: {
+      name: `${firstName} ${lastName}`,
+      email: email,
+      contact: phone
+    },
+    theme: {
+      color: "#d4577b"
+    },
+    modal: {
+      ondismiss: function () {
+        showToast("Payment cancelled. You can try again.");
+      }
+    },
+    handler: function (response) {
+      onPaymentSuccess(response);
+    }
   };
-  let payHtml = `<strong>${methodNames[method]}</strong>`;
-  if (method === "upi") payHtml += `<br/>UPI ID: ${$("#coUpi").value.trim()}`;
-  if (method === "card") {
-    const num = $("#coCardNumber").value.trim();
-    payHtml += `<br/>Card ending in ${num.slice(-4)}`;
-  }
-  $("#confirmPayment").innerHTML = payHtml;
 
-  const itemsHtml = cart.map(item =>
-    `${item.name} x${item.qty} — ₹${(item.price * item.qty).toLocaleString("en-IN")}`
-  ).join("<br/>");
-  $("#confirmItems").innerHTML = itemsHtml;
+  const rzp = new Razorpay(options);
+
+  rzp.on("payment.failed", function (response) {
+    showToast("Payment failed: " + response.error.description);
+  });
+
+  rzp.open();
+}
+
+function onPaymentSuccess(response) {
+  const orderId = "BP" + Date.now().toString(36).toUpperCase();
+  $("#orderId").textContent = `Order ID: ${orderId}`;
+  $("#paymentId").textContent = `Payment ID: ${response.razorpay_payment_id}`;
+
+  currentStep = 3;
+  updateCheckoutSteps();
+
+  cart = [];
+  saveCart();
+  updateCart();
+
+  showToast("Payment successful! Order placed.");
 }
 
 // ===== VALIDATION =====
@@ -532,14 +575,6 @@ function validateField(input, rules) {
     msg = "Enter a valid 6-digit PIN code";
   } else if (rules.minLength && val.length < rules.minLength) {
     msg = `Minimum ${rules.minLength} characters required`;
-  } else if (rules.upi && val && !/^[\w.-]+@[\w]+$/.test(val)) {
-    msg = "Enter a valid UPI ID (e.g. name@upi)";
-  } else if (rules.cardNumber && val && !/^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$/.test(val)) {
-    msg = "Enter a valid 16-digit card number";
-  } else if (rules.expiry && val && !/^(0[1-9]|1[0-2])\/\d{2}$/.test(val)) {
-    msg = "Enter valid expiry (MM/YY)";
-  } else if (rules.cvv && val && !/^\d{3,4}$/.test(val)) {
-    msg = "Enter a valid CVV";
   }
 
   if (msg) {
@@ -572,68 +607,30 @@ function validateShipping() {
   return valid;
 }
 
-function validatePayment() {
-  const method = document.querySelector('input[name="paymentMethod"]:checked').value;
-
-  if (method === "upi") {
-    return validateField($("#coUpi"), { required: true, upi: true });
-  }
-  if (method === "card") {
-    let valid = true;
-    if (!validateField($("#coCardName"), { required: true, minLength: 2 })) valid = false;
-    if (!validateField($("#coCardNumber"), { required: true, cardNumber: true })) valid = false;
-    if (!validateField($("#coExpiry"), { required: true, expiry: true })) valid = false;
-    if (!validateField($("#coCvv"), { required: true, cvv: true })) valid = false;
-    return valid;
-  }
-  return true;
-}
-
 // ===== CHECKOUT EVENT SETUP =====
 function setupCheckout() {
   $("#checkoutOverlay").addEventListener("click", closeCheckout);
   $("#checkoutClose").addEventListener("click", closeCheckout);
   $("#checkoutCancelBtn").addEventListener("click", closeCheckout);
 
-  // Step 1 → 2
-  $("#toPaymentBtn").addEventListener("click", () => {
+  // Step 1 → 2 (Shipping → Review)
+  $("#toReviewBtn").addEventListener("click", () => {
     if (!validateShipping()) return;
     currentStep = 2;
     updateCheckoutSteps();
     populateOrderSummary();
+    populateReview();
   });
 
-  // Step 2 → 1
+  // Step 2 → 1 (Review → Shipping)
   $("#backToShippingBtn").addEventListener("click", () => {
     currentStep = 1;
     updateCheckoutSteps();
   });
 
-  // Step 2 → 3
-  $("#toConfirmBtn").addEventListener("click", () => {
-    if (!validatePayment()) return;
-    currentStep = 3;
-    updateCheckoutSteps();
-    populateOrderSummary();
-    populateConfirmation();
-  });
-
-  // Step 3 → 2
-  $("#backToPaymentBtn").addEventListener("click", () => {
-    currentStep = 2;
-    updateCheckoutSteps();
-  });
-
-  // Place order
-  $("#placeOrderBtn").addEventListener("click", () => {
-    const orderId = "BP" + Date.now().toString(36).toUpperCase();
-    $("#orderId").textContent = `Order ID: ${orderId}`;
-    currentStep = 4;
-    updateCheckoutSteps();
-
-    cart = [];
-    saveCart();
-    updateCart();
+  // Pay Now — open Razorpay
+  $("#payNowBtn").addEventListener("click", () => {
+    initiateRazorpayPayment();
   });
 
   // Continue shopping after success
@@ -642,38 +639,6 @@ function setupCheckout() {
     currentStep = 1;
     updateCheckoutSteps();
   });
-
-  // Payment method toggle
-  $$('.payment-option input[name="paymentMethod"]').forEach(radio => {
-    radio.addEventListener("change", () => {
-      $$(".payment-option").forEach(o => o.classList.remove("active"));
-      radio.closest(".payment-option").classList.add("active");
-
-      const method = radio.value;
-      $("#upiFields").style.display = method === "upi" ? "block" : "none";
-      $("#cardFields").style.display = method === "card" ? "block" : "none";
-    });
-  });
-
-  // Card number formatting (add spaces)
-  const cardInput = $("#coCardNumber");
-  if (cardInput) {
-    cardInput.addEventListener("input", (e) => {
-      let val = e.target.value.replace(/\D/g, "").substring(0, 16);
-      val = val.replace(/(\d{4})(?=\d)/g, "$1 ");
-      e.target.value = val;
-    });
-  }
-
-  // Expiry formatting
-  const expiryInput = $("#coExpiry");
-  if (expiryInput) {
-    expiryInput.addEventListener("input", (e) => {
-      let val = e.target.value.replace(/\D/g, "").substring(0, 4);
-      if (val.length >= 3) val = val.substring(0, 2) + "/" + val.substring(2);
-      e.target.value = val;
-    });
-  }
 
   // Phone number — digits only
   const phoneInput = $("#coPhone");

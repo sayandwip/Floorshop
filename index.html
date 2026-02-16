@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
 
@@ -321,12 +322,12 @@
       <div class="step-line"></div>
       <div class="step" data-step="2">
         <div class="step-circle">2</div>
-        <span>Payment</span>
+        <span>Review</span>
       </div>
       <div class="step-line"></div>
       <div class="step" data-step="3">
         <div class="step-circle">3</div>
-        <span>Confirm</span>
+        <span>Pay</span>
       </div>
     </div>
 
@@ -415,92 +416,19 @@
         </div>
         <div class="checkout-actions">
           <button type="button" class="btn btn-outline" id="checkoutCancelBtn">Cancel</button>
-          <button type="button" class="btn btn-primary" id="toPaymentBtn">Continue to Payment</button>
+          <button type="button" class="btn btn-primary" id="toReviewBtn">Review Order</button>
         </div>
       </div>
 
-      <!-- Step 2: Payment Details -->
-      <div class="checkout-step-panel" id="stepPayment">
-        <h4>Payment Method</h4>
-        <div class="payment-options">
-          <label class="payment-option active">
-            <input type="radio" name="paymentMethod" value="cod" checked />
-            <div class="payment-option-content">
-              <span class="payment-icon">💵</span>
-              <div>
-                <strong>Cash on Delivery</strong>
-                <p>Pay when your flowers arrive</p>
-              </div>
-            </div>
-          </label>
-          <label class="payment-option">
-            <input type="radio" name="paymentMethod" value="upi" />
-            <div class="payment-option-content">
-              <span class="payment-icon">📱</span>
-              <div>
-                <strong>UPI Payment</strong>
-                <p>GPay, PhonePe, Paytm, etc.</p>
-              </div>
-            </div>
-          </label>
-          <label class="payment-option">
-            <input type="radio" name="paymentMethod" value="card" />
-            <div class="payment-option-content">
-              <span class="payment-icon">💳</span>
-              <div>
-                <strong>Credit / Debit Card</strong>
-                <p>Visa, Mastercard, RuPay</p>
-              </div>
-            </div>
-          </label>
-          <label class="payment-option">
-            <input type="radio" name="paymentMethod" value="netbanking" />
-            <div class="payment-option-content">
-              <span class="payment-icon">🏦</span>
-              <div>
-                <strong>Net Banking</strong>
-                <p>All major banks supported</p>
-              </div>
-            </div>
-          </label>
+      <!-- Step 2: Review & Pay -->
+      <div class="checkout-step-panel" id="stepReview">
+        <h4>Review Your Order</h4>
+
+        <div class="confirm-section">
+          <h5>Shipping To</h5>
+          <div id="confirmShipping" class="confirm-details"></div>
         </div>
 
-        <!-- UPI field -->
-        <div class="payment-fields" id="upiFields" style="display:none">
-          <div class="form-group">
-            <label for="coUpi">UPI ID <span class="req">*</span></label>
-            <input type="text" id="coUpi" placeholder="yourname@upi" />
-            <span class="form-error"></span>
-          </div>
-        </div>
-
-        <!-- Card fields -->
-        <div class="payment-fields" id="cardFields" style="display:none">
-          <div class="form-group">
-            <label for="coCardName">Name on Card <span class="req">*</span></label>
-            <input type="text" id="coCardName" placeholder="John Doe" />
-            <span class="form-error"></span>
-          </div>
-          <div class="form-group">
-            <label for="coCardNumber">Card Number <span class="req">*</span></label>
-            <input type="text" id="coCardNumber" placeholder="1234 5678 9012 3456" maxlength="19" />
-            <span class="form-error"></span>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="coExpiry">Expiry (MM/YY) <span class="req">*</span></label>
-              <input type="text" id="coExpiry" placeholder="MM/YY" maxlength="5" />
-              <span class="form-error"></span>
-            </div>
-            <div class="form-group">
-              <label for="coCvv">CVV <span class="req">*</span></label>
-              <input type="text" id="coCvv" placeholder="123" maxlength="4" />
-              <span class="form-error"></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Order Summary -->
         <div class="order-summary">
           <h4>Order Summary</h4>
           <div class="order-items" id="orderItems"></div>
@@ -518,47 +446,36 @@
           </div>
         </div>
 
+        <div class="razorpay-info">
+          <div class="razorpay-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Secure payment powered by <strong>Razorpay</strong></span>
+          </div>
+          <div class="payment-methods-strip">
+            <span>UPI</span>
+            <span>Cards</span>
+            <span>Net Banking</span>
+            <span>Wallets</span>
+          </div>
+        </div>
+
         <div class="checkout-actions">
           <button type="button" class="btn btn-outline" id="backToShippingBtn">Back</button>
-          <button type="button" class="btn btn-primary" id="toConfirmBtn">Review Order</button>
+          <button type="button" class="btn btn-primary btn-success" id="payNowBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Pay Now
+          </button>
         </div>
       </div>
 
-      <!-- Step 3: Confirmation -->
-      <div class="checkout-step-panel" id="stepConfirm">
-        <div class="confirm-icon">✅</div>
-        <h4>Review & Place Order</h4>
-
-        <div class="confirm-section">
-          <h5>Shipping To</h5>
-          <div id="confirmShipping" class="confirm-details"></div>
-        </div>
-        <div class="confirm-section">
-          <h5>Payment</h5>
-          <div id="confirmPayment" class="confirm-details"></div>
-        </div>
-        <div class="confirm-section">
-          <h5>Items</h5>
-          <div id="confirmItems" class="confirm-details"></div>
-        </div>
-        <div class="order-line total" style="margin-top:16px">
-          <strong>Total Amount</strong>
-          <strong id="confirmTotal">₹0</strong>
-        </div>
-
-        <div class="checkout-actions">
-          <button type="button" class="btn btn-outline" id="backToPaymentBtn">Back</button>
-          <button type="button" class="btn btn-primary btn-success" id="placeOrderBtn">Place Order</button>
-        </div>
-      </div>
-
-      <!-- Step 4: Success -->
+      <!-- Step 3: Success -->
       <div class="checkout-step-panel" id="stepSuccess">
         <div class="success-animation">
           <div class="success-icon">🎉</div>
           <h4>Order Placed Successfully!</h4>
           <p class="success-msg">Thank you for your order. We'll send a confirmation to your email shortly.</p>
           <p class="order-id" id="orderId"></p>
+          <p class="payment-id" id="paymentId"></p>
           <button type="button" class="btn btn-primary" id="continueShopping">Continue Shopping</button>
         </div>
       </div>
