@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1660B3D0701A953ABFAAC49A /* NetworkSpeedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9368B90B0F538FAA1027F5 /* NetworkSpeedMonitor.swift */; };
+		2157D544456374E53EF71D88 /* SpeedMeterLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16032CE29F82BB3C0D9CA7 /* SpeedMeterLiveActivity.swift */; };
+		2C5961171E27FAFD835EA79E /* SpeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D471B84173ECE072BCB2BCB /* SpeedData.swift */; };
+		3AC3859CD7AB2739F7B3BAC7 /* SpeedGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F482F08625C72AD61D9E25 /* SpeedGaugeView.swift */; };
+		402E86E3F9141AAA5423311A /* StatsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F381D76FEA86784E67B59D2F /* StatsCardView.swift */; };
+		5818796B05A6B7DDD22DDAB2 /* SpeedMeterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1554A4141AFECFF0D4588 /* SpeedMeterApp.swift */; };
+		7704C482636FC31F8B7932DD /* SpeedChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6727FE91D1CCB95EC3EEBB0C /* SpeedChartView.swift */; };
+		89A4F6141E931BF211626DDE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45015FD9FD402523F4CD6CE1 /* ContentView.swift */; };
+		AAB7F487A62B0C3D2D4F6D70 /* SpeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D471B84173ECE072BCB2BCB /* SpeedData.swift */; };
+		AE272040611005E192A97605 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9D977D767E0287D4649D71FF /* PrivacyInfo.xcprivacy */; };
+		B0F32ECB898CBC6EB1F3A54A /* SpeedMeterLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16032CE29F82BB3C0D9CA7 /* SpeedMeterLiveActivity.swift */; };
+		D61ED33BBFB20A0AD272D8D2 /* SpeedMeterWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B407DA5BFAB5D2926F9A3775 /* SpeedMeterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D63B3976B5FBF68F9F423380 /* SpeedMeterWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8A458409ED457C4D00C3FC /* SpeedMeterWidget.swift */; };
+		FF2A95A9D72ABF5A9F6D895B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E39D51197DD41CFEEA88B3 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1DEA7DE28E52A7FF6C5FEED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 989ED577CC972CDD56DD1411 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A60768BF1424D2FF5020018E;
+			remoteInfo = SpeedMeterWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9D22D8D9A4BFC85B89FB5D3F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D61ED33BBFB20A0AD272D8D2 /* SpeedMeterWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		17E91893C485671A76240B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1F16032CE29F82BB3C0D9CA7 /* SpeedMeterLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedMeterLiveActivity.swift; sourceTree = "<group>"; };
+		35F482F08625C72AD61D9E25 /* SpeedGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedGaugeView.swift; sourceTree = "<group>"; };
+		45015FD9FD402523F4CD6CE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4A600AF2D92B9CF981752C33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4E0433002E05AD2D0C16981D /* SpeedMeterWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpeedMeterWidget.entitlements; sourceTree = "<group>"; };
+		65E39D51197DD41CFEEA88B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6727FE91D1CCB95EC3EEBB0C /* SpeedChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedChartView.swift; sourceTree = "<group>"; };
+		6D471B84173ECE072BCB2BCB /* SpeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedData.swift; sourceTree = "<group>"; };
+		8446CDC6100D891FC34BCE5B /* SpeedMeter.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SpeedMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A8A458409ED457C4D00C3FC /* SpeedMeterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedMeterWidget.swift; sourceTree = "<group>"; };
+		9D977D767E0287D4649D71FF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		B407DA5BFAB5D2926F9A3775 /* SpeedMeterWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = SpeedMeterWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD9368B90B0F538FAA1027F5 /* NetworkSpeedMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpeedMonitor.swift; sourceTree = "<group>"; };
+		ECF1554A4141AFECFF0D4588 /* SpeedMeterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedMeterApp.swift; sourceTree = "<group>"; };
+		F381D76FEA86784E67B59D2F /* StatsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCardView.swift; sourceTree = "<group>"; };
+		FF57A87A759C0017E987A386 /* SpeedMeter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpeedMeter.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		4498B7569831520D6CB75EFE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45015FD9FD402523F4CD6CE1 /* ContentView.swift */,
+				6727FE91D1CCB95EC3EEBB0C /* SpeedChartView.swift */,
+				35F482F08625C72AD61D9E25 /* SpeedGaugeView.swift */,
+				1F16032CE29F82BB3C0D9CA7 /* SpeedMeterLiveActivity.swift */,
+				F381D76FEA86784E67B59D2F /* StatsCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9FE094BE96AA23FCBE7FFD48 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6D471B84173ECE072BCB2BCB /* SpeedData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A36D81DFBE231DA14766455B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CD9368B90B0F538FAA1027F5 /* NetworkSpeedMonitor.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C6A0B8A211DD06C1E7877B7B /* SpeedMeterWidget */ = {
+			isa = PBXGroup;
+			children = (
+				17E91893C485671A76240B85 /* Info.plist */,
+				4E0433002E05AD2D0C16981D /* SpeedMeterWidget.entitlements */,
+				8A8A458409ED457C4D00C3FC /* SpeedMeterWidget.swift */,
+			);
+			path = SpeedMeterWidget;
+			sourceTree = "<group>";
+		};
+		E24CC59CB29827D52D0F525B = {
+			isa = PBXGroup;
+			children = (
+				FBD63AB4CA01C54C72C07699 /* SpeedMeter */,
+				C6A0B8A211DD06C1E7877B7B /* SpeedMeterWidget */,
+				E7BF4F2A42B9339E32851EEA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E7BF4F2A42B9339E32851EEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8446CDC6100D891FC34BCE5B /* SpeedMeter.app */,
+				B407DA5BFAB5D2926F9A3775 /* SpeedMeterWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBD63AB4CA01C54C72C07699 /* SpeedMeter */ = {
+			isa = PBXGroup;
+			children = (
+				65E39D51197DD41CFEEA88B3 /* Assets.xcassets */,
+				4A600AF2D92B9CF981752C33 /* Info.plist */,
+				9D977D767E0287D4649D71FF /* PrivacyInfo.xcprivacy */,
+				FF57A87A759C0017E987A386 /* SpeedMeter.entitlements */,
+				ECF1554A4141AFECFF0D4588 /* SpeedMeterApp.swift */,
+				9FE094BE96AA23FCBE7FFD48 /* Models */,
+				A36D81DFBE231DA14766455B /* Services */,
+				4498B7569831520D6CB75EFE /* Views */,
+			);
+			path = SpeedMeter;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0BC42CD5684186DA790BE805 /* SpeedMeter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E0692B6FA48346B644B5446 /* Build configuration list for PBXNativeTarget "SpeedMeter" */;
+			buildPhases = (
+				B690318B5F695980CB8A0BC5 /* Sources */,
+				36B0D2E7FBD48578E7EA9B61 /* Resources */,
+				9D22D8D9A4BFC85B89FB5D3F /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				44229745A979BD6DD4B806AA /* PBXTargetDependency */,
+			);
+			name = SpeedMeter;
+			packageProductDependencies = (
+			);
+			productName = SpeedMeter;
+			productReference = 8446CDC6100D891FC34BCE5B /* SpeedMeter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A60768BF1424D2FF5020018E /* SpeedMeterWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D7F3FCEE63AD92CA6F023B2 /* Build configuration list for PBXNativeTarget "SpeedMeterWidgetExtension" */;
+			buildPhases = (
+				B5D2EB682F4E4D4636DEFE9B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpeedMeterWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = SpeedMeterWidgetExtension;
+			productReference = B407DA5BFAB5D2926F9A3775 /* SpeedMeterWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		989ED577CC972CDD56DD1411 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					0BC42CD5684186DA790BE805 = {
+						DevelopmentTeam = U9VKCZGR2B;
+						ProvisioningStyle = Automatic;
+					};
+					A60768BF1424D2FF5020018E = {
+						DevelopmentTeam = U9VKCZGR2B;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E6FF5635653618CB371C3CC7 /* Build configuration list for PBXProject "SpeedMeter" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E24CC59CB29827D52D0F525B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0BC42CD5684186DA790BE805 /* SpeedMeter */,
+				A60768BF1424D2FF5020018E /* SpeedMeterWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		36B0D2E7FBD48578E7EA9B61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF2A95A9D72ABF5A9F6D895B /* Assets.xcassets in Resources */,
+				AE272040611005E192A97605 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B5D2EB682F4E4D4636DEFE9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C5961171E27FAFD835EA79E /* SpeedData.swift in Sources */,
+				2157D544456374E53EF71D88 /* SpeedMeterLiveActivity.swift in Sources */,
+				D63B3976B5FBF68F9F423380 /* SpeedMeterWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B690318B5F695980CB8A0BC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89A4F6141E931BF211626DDE /* ContentView.swift in Sources */,
+				1660B3D0701A953ABFAAC49A /* NetworkSpeedMonitor.swift in Sources */,
+				7704C482636FC31F8B7932DD /* SpeedChartView.swift in Sources */,
+				AAB7F487A62B0C3D2D4F6D70 /* SpeedData.swift in Sources */,
+				3AC3859CD7AB2739F7B3BAC7 /* SpeedGaugeView.swift in Sources */,
+				5818796B05A6B7DDD22DDAB2 /* SpeedMeterApp.swift in Sources */,
+				B0F32ECB898CBC6EB1F3A54A /* SpeedMeterLiveActivity.swift in Sources */,
+				402E86E3F9141AAA5423311A /* StatsCardView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		44229745A979BD6DD4B806AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A60768BF1424D2FF5020018E /* SpeedMeterWidgetExtension */;
+			targetProxy = C1DEA7DE28E52A7FF6C5FEED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3916993D3A2116CE84C1F6F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SpeedMeter/SpeedMeter.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SpeedMeter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sayandwips.speedmeter;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		44E5BDE33BE68FE61782D2A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = U9VKCZGR2B;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		48D27E8A4FDF10AADAA2CA3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = U9VKCZGR2B;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89CE87C231468C3E1EAA076F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SpeedMeterWidget/SpeedMeterWidget.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SpeedMeterWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sayandwips.speedmeter.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9F0013EB7557F2B19AFA216 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SpeedMeter/SpeedMeter.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SpeedMeter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sayandwips.speedmeter;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B47B0C84A66B76C793217588 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SpeedMeterWidget/SpeedMeterWidget.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SpeedMeterWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sayandwips.speedmeter.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E0692B6FA48346B644B5446 /* Build configuration list for PBXNativeTarget "SpeedMeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3916993D3A2116CE84C1F6F1 /* Debug */,
+				A9F0013EB7557F2B19AFA216 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3D7F3FCEE63AD92CA6F023B2 /* Build configuration list for PBXNativeTarget "SpeedMeterWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89CE87C231468C3E1EAA076F /* Debug */,
+				B47B0C84A66B76C793217588 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E6FF5635653618CB371C3CC7 /* Build configuration list for PBXProject "SpeedMeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48D27E8A4FDF10AADAA2CA3C /* Debug */,
+				44E5BDE33BE68FE61782D2A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 989ED577CC972CDD56DD1411 /* Project object */;
+}
